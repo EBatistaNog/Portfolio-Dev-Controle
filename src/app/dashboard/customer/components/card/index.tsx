@@ -34,12 +34,20 @@ export function CardCustomer({ customer }: { customer: CustomerProps }) {
       <p><a className="font-bold">Email:</a> {customer.email}</p>
       <p><a className="font-bold">Telefone:</a> {customer.phone}</p>
 
-      <button
-        className="bg-red-500 px-4 rounded text-white mt-2 self-start"
-        onClick={handleDeleteCustomer}
-      >
-        Deletar
-      </button>
+      <div className="flex gap-2 mt-2">
+        <button
+          className="bg-red-500 px-4 rounded text-white self-start"
+          onClick={handleDeleteCustomer}
+        >
+          Deletar
+        </button>
+        <a
+          href={`/dashboard/customer/edit/${customer.id}`}
+          className="bg-blue-500 px-4 rounded text-white self-start"
+        >
+          Editar
+        </a>
+      </div>
     </article>
   )
 }
