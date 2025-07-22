@@ -41,12 +41,6 @@ export function CardCustomer({ customer }: { customer: CustomerProps }) {
         >
           Deletar
         </button>
-        <a
-          href={`/dashboard/customer/edit/${customer.id}`}
-          className="bg-blue-500 px-4 rounded text-white self-start"
-        >
-          Editar
-        </a>
       </div>
     </article>
   )
