@@ -1,3 +1,5 @@
+// src/app/dashboard/customer/edit/[id]/page.tsx
+
 import { Container } from "@/components/container";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
@@ -11,6 +13,7 @@ interface PageProps {
 }
 
 export default async function EditCustomer({ params }: PageProps) {
+  
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
@@ -20,8 +23,8 @@ export default async function EditCustomer({ params }: PageProps) {
   const customer = await prismaClient.customer.findFirst({
     where: {
       id: params.id,
-      userId: session.user.id
-    }
+      userId: session.user.id,
+    },
   });
 
   if (!customer) {
