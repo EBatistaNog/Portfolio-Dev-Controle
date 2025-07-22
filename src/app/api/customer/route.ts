@@ -75,38 +75,3 @@ export async function POST(request: Request){
   }
 
 }
-
-// Rota para atualizar um cliente
-export async function PATCH(request: Request){
-  const session = await getServerSession(authOptions);
-
-  if(!session || !session.user){
-    return NextResponse.json({ error: "Not authorized" }, { status: 401 })
-  }
-
-  const { id, name, email, phone, address } = await request.json();
-
-  if(!id){
-    return NextResponse.json({ error: "Failed update customer" }, { status: 400 })
-  }
-
-  try{
-    await prismaClient.customer.update({
-      where:{
-        id: id as string
-      },
-      data:{
-        name,
-        email,
-        phone,
-        address: address ? address : ""
-      }
-    })
-
-    return NextResponse.json({ message: "Cliente atualizado com sucesso!" })
-
-  }catch(err){
-    return NextResponse.json({ error: "Failed update customer" }, { status: 400 })
-  }
-
-}
