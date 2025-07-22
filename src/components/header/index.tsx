@@ -8,7 +8,8 @@ export function Header() {
   const { status, data } = useSession();
 
   async function handleLogin() {
-    await signIn();
+    // Redirect the user to the dashboard after a successful login
+    await signIn('google', { callbackUrl: '/dashboard' });
   }
 
   async function handleLogout() {
