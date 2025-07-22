@@ -1,4 +1,3 @@
-
 import { Container } from "@/components/container";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
@@ -7,11 +6,13 @@ import { redirect } from "next/navigation";
 import prismaClient from "@/lib/prisma";
 import { EditCustomerForm } from "../../components/form/edit";
 
-export default async function EditCustomer({
-  params,
-}: {
-  params: { id: string };
-}) {
+type PageParams = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function EditCustomer({ params }: PageParams) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
