@@ -1,3 +1,4 @@
+
 import { Container } from "@/components/container";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
@@ -6,11 +7,11 @@ import { redirect } from "next/navigation";
 import prismaClient from "@/lib/prisma";
 import { EditCustomerForm } from "../../components/form/edit";
 
-interface PageProps {
-  params: { id: string }
-}
-
-export default async function EditCustomer({ params }: PageProps) {
+export default async function EditCustomer({
+  params,
+}: {
+  params: { id: string };
+}) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
@@ -20,8 +21,8 @@ export default async function EditCustomer({ params }: PageProps) {
   const customer = await prismaClient.customer.findFirst({
     where: {
       id: params.id,
-      userId: session.user.id
-    }
+      userId: session.user.id,
+    },
   });
 
   if (!customer) {

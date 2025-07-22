@@ -43,7 +43,6 @@ export function EditCustomerForm({ customer }: { customer: CustomerProps }) {
       address: data.address,
     })
 
-    alert("Cliente atualizado com sucesso!")
     router.refresh()
     router.replace("/dashboard/customer")
   }
