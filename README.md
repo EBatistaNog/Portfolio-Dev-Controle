@@ -29,15 +29,16 @@ Este projeto tem como objetivo auxiliar pequenas empresas e prestadores de servi
 
 - **React.js**
 - **Next.js**
-- **Firebase** (Auth e Firestore)
+- **Firebase** (Auth)
 - **Tailwind CSS**
 - **Vercel** (Deploy)
+- **MongoDB**
 
 ---
 
 ## 📚 Curso
 
-Este projeto foi desenvolvido como parte prática do curso **"Sistema completo de chamados com React + Firebase"** do canal [Sujeito Programador](https://youtube.com/sujeitoprogramador).
+Este projeto foi desenvolvido como parte prática do curso **"Sistema completo de chamados com React"** do canal [Sujeito Programador](https://youtube.com/sujeitoprogramador).
 
 ---
 
